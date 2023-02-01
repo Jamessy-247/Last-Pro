@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="input.css" rel="stylesheet">
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body{
+        background-color:
+    }
+    .keypad {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .keypad button {
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      margin: 10px;
+    }
+
+    .pin-entry {
+      font-size: 20px;
+      width: 100px;
+      text-align: center;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+    <input type="text" placeholder="Enter pin" class="pin-entry" readonly>
+  <div class="keypad">
+    <div></div>
+    <button id="1">1</button>
+    <button id="2">2</button>
+    <button id="3">3</button>
+    <button id="4">4</button></div>
+    <div class="keypad">
+    <button id="5">5</button>
+    <button id="6">6</button>
+    <button id="7">7</button>
+    <button id="8">8</button></div>
+    <div class="keypad">
+    <button id="9">9</button>
+    <button id="clear">Clear</button>
+    <button id="0">0</button>
+    <button id="enter">Enter</button></div>
+  </div>
+  <!-- <input   type="text" class="pin-entry" readonly /> -->
+
+  <script>
+    const keypadButtons = document.querySelectorAll(".keypad button");
+    const pinEntry = document.querySelector(".pin-entry");
+    let enteredPin = "";
+
+    keypadButtons.forEach(button => {
+      button.addEventListener("click", event => {
+        const buttonValue = event.target.innerHTML;
+        if (buttonValue === "Clear") {
+          enteredPin = "";
+          pinEntry.value = "";
+        } else if (buttonValue === "Enter") {
+          validatePin(enteredPin);
+        } else {
+          enteredPin += buttonValue;
+          pinEntry.value = enteredPin;
+        }
+      });
+    });
+
+    function validatePin(pin) {
+      if (pin === "1234") {
+        window.location.href = "scan.html";
+      } else {
+        alert("Incorrect PIN");
+      }
+    }
+  </script>
+</body>
+</html>
+
+</body>
+</html>
