@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="input.css" rel="stylesheet">
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body{
+       /* background: linear-gradient(
+    to right,
+    pink 0%,
+    pink 50%,
+    paleturquoise 50%,
+    paleturquoise 100% */
+    background: linear-gradient(290deg, rgb(119, 0, 255), yellow)
+  ;
+    }
+    .keypad {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: 75%;
+      margin-top: 20px;
+    }
+
+    .keypad button {
+      width: 60px;
+      height: 60px;
+      font-size: 20px;
+      margin: 5px;
+      color: black;
+      background:pink;
+      left: 40%;
+      border: 0px;
+      border-radius: 10px;
+     
+    }
+   
+  
+    .pin-entry {
+      margin-top: 40px;
+      font-size: 20px;
+      width: 200px;
+      text-align: center;
+      margin: 20px 0;
+      border-radius: 20%;
+      margin-left: 78%;
+      margin: 2px solid grey;
+
+    }
+
+  </style>
+</head>
+<body>
+    <input type="text" placeholder="enter your 4 digit pin" class="pin-entry" readonly>
+  <div class="keypad">
+    <div></div>
+    <button id="1">1</button>
+    <button id="2">2</button>
+    <button id="3">3</button>
+    <button id="4">4</button></div>
+    <div class="keypad">
+    <button id="5">5</button>
+    <button id="6">6</button>
+    <button id="7">7</button>
+    <button id="8">8</button></div>
+    <div class="keypad">
+    <button id="9">9</button>
+    <button id="0">0</button>
+    <button id="clear">Clear</button>
+    <button class="enter" id="enter">Enter</button></div>
+  </div>
+  <!-- <input   type="text" class="pin-entry" readonly /> -->
+
+  <script>
+    const keypadButtons = document.querySelectorAll(".keypad button");
+    const pinEntry = document.querySelector(".pin-entry");
+    let enteredPin = "";
+
+    keypadButtons.forEach(button => {
+      button.addEventListener("click", event => {
+        const buttonValue = event.target.innerHTML;
+        if (buttonValue === "Clear") {
+          enteredPin = "";
+          pinEntry.value = "";
+        } else if (buttonValue === "Enter") {
+          validatePin(enteredPin);
+        } else {
+          enteredPin += buttonValue;
+          pinEntry.value = enteredPin;
+        }
+      });
+    });
+
+    function validatePin(pin) {
+      if (pin === "1234"), (pin === "1324"), (pin === "2734") (pin === "5902"){
+        window.location.href = "scan.html";
+      } else {
+        alert("Incorrect PIN");
+      }
+    }
+  </script>
+</body>
+</html>
+
+</body>
+</html>
